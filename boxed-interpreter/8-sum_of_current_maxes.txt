@@ -1,0 +1,81 @@
+PUT n
+MOVE n DOWN
+MOVE n DOWN
+LOOP // begin decr. n by 1
+    MOVE n RIGHT
+ENDLOOP
+MOVE n LEFT // end decr. n by 1
+PUT sum
+MOVE sum RIGHT
+MOVE sum DOWN
+MOVE sum DOWN
+COMPARE v
+MOVE sum UP
+MOVE sum LEFT
+MOVE v RIGHT
+MOVE v DOWN
+MOVE v DOWN
+LOOP
+    PUT nv
+    MOVE sum RIGHT
+    MOVE sum UP
+    MOVE nv DOWN
+    MOVE sum LEFT
+    MOVE v UP
+    MOVE v UP
+    MOVE nv RIGHT
+    MOVE nv DOWN
+    MOVE sum DOWN
+    COMPARE com
+    MOVE sum RIGHT
+    MOVE com DOWN
+    MOVE v LEFT
+    MOVE sum UP
+    MOVE nv UP
+    MOVE n RIGHT
+    MOVE com DOWN
+    LOOP // fires if we should add to the sum; this method adds to the sum and puts 0 for COM.
+        MOVE com UP
+        MOVE n LEFT
+        MOVE nv DOWN
+        MOVE sum DOWN
+        MOVE v RIGHT
+        MOVE com UP
+        MOVE n UP
+        MOVE nv LEFT
+        MOVE sum DOWN
+        MOVE v DOWN
+        EXIT
+        MOVE com RIGHT
+        MOVE com DOWN
+        EXIT
+        COMPARE temp
+        MOVE temp RIGHT
+        COMPARE com
+        MOVE temp DOWN
+        EXIT // com now set to zero
+        MOVE sum UP
+        MOVE nv RIGHT
+        MOVE n DOWN
+        MOVE com DOWN
+        COMPARE v
+        MOVE v RIGHT
+        MOVE v DOWN // nv now added to sum
+        COMPARE v
+        MOVE sum UP
+        MOVE nv UP
+        MOVE n RIGHT
+        MOVE com DOWN
+    ENDLOOP
+    EXIT
+    MOVE com UP
+    MOVE com RIGHT
+    EXIT
+    MOVE n LEFT
+    MOVE sum DOWN
+    MOVE sum LEFT
+    MOVE v RIGHT
+    MOVE v DOWN
+    MOVE v DOWN
+ENDLOOP
+PRINT

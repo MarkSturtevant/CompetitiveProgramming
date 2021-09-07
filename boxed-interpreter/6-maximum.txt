@@ -1,0 +1,19 @@
+PUT A
+MOVE A DOWN
+MOVE A DOWN
+MOVE A RIGHT
+PUT B
+MOVE B RIGHT
+COMPARE COM
+MOVE COM DOWN
+MOVE COM DOWN
+LOOP // if COM > 0, this loop runs, so A > B.
+    MOVE B DOWN
+    EXIT
+    COMPARE B
+    MOVE B RIGHT // B has been set to the value of A.
+    MOVE COM RIGHT // exit loop
+ENDLOOP
+MOVE B LEFT
+MOVE B DOWN
+PRINT

@@ -1,0 +1,83 @@
+PUT a
+MOVE a RIGHT
+MOVE a DOWN
+MOVE a DOWN
+COMPARE iter
+MOVE iter DOWN
+MOVE iter DOWN
+MOVE a UP
+MOVE a LEFT
+PUT b
+MOVE b RIGHT
+MOVE b DOWN
+MOVE b DOWN
+COMPARE sum
+MOVE a RIGHT
+MOVE sum DOWN
+LOOP
+    COMPARE bcopy
+    MOVE bcopy DOWN // adds B to sum
+    MOVE a UP
+    MOVE sum RIGHT
+    MOVE iter UP
+    MOVE b LEFT
+    MOVE sum DOWN
+    COMPARE check
+    MOVE sum UP
+    MOVE b RIGHT
+    MOVE iter DOWN
+    MOVE check DOWN
+    MOVE a LEFT
+    MOVE sum UP
+    MOVE b UP
+    MOVE iter RIGHT
+    MOVE check DOWN
+    LOOP // runs if check > 0, or sum > A.
+        EXIT
+        MOVE sum DOWN
+        EXIT
+        MOVE iter UP
+        MOVE iter UP
+        MOVE a DOWN
+        MOVE a RIGHT
+        MOVE a DOWN
+        COMPARE out // a - iter
+        MOVE out DOWN
+        PRINT
+        // answer outputed, now moving to reset the board and iter for completion.
+        MOVE out RIGHT
+        EXIT
+        MOVE iter DOWN
+        EXIT
+        MOVE check UP
+        MOVE check RIGHT
+        EXIT
+        MOVE a UP
+        MOVE a UP
+        COMPARE check
+        MOVE check DOWN
+        MOVE check DOWN
+        COMPARE iter // guarenteed to be negative
+        MOVE iter DOWN
+        MOVE iter RIGHT
+        MOVE iter DOWN
+        MOVE a DOWN
+        MOVE a LEFT
+        COMPARE b
+        MOVE b RIGHT
+        MOVE b DOWN
+        COMPARE sum
+        MOVE sum RIGHT
+        MOVE a UP
+    ENDLOOP
+    // reseting for next iteration
+    MOVE check UP
+    MOVE iter LEFT
+    MOVE b DOWN
+    MOVE check RIGHT
+    EXIT
+    MOVE sum DOWN
+    MOVE sum LEFT
+    MOVE a RIGHT
+    MOVE a DOWN
+ENDLOOP

@@ -1,0 +1,180 @@
+PUT n
+MOVE n DOWN
+MOVE n DOWN
+MOVE n RIGHT
+COMPARE factor
+MOVE factor DOWN
+MOVE factor DOWN
+// now iterating against every factor from 1 ... N-1, stopping when 'factor' is a factor of n.
+LOOP
+    COMPARE iter
+    MOVE n UP
+    MOVE factor RIGHT
+    MOVE iter DOWN
+    MOVE iter DOWN
+    COMPARE sum
+    LOOP
+        COMPARE unused
+        MOVE n UP
+        MOVE sum DOWN
+        MOVE sum RIGHT
+        MOVE iter UP
+        MOVE factor LEFT
+        MOVE sum DOWN
+        COMPARE test // test > 0 if sum > N
+        MOVE sum UP
+        MOVE factor RIGHT
+        MOVE iter DOWN
+        MOVE test DOWN
+        MOVE n LEFT
+        MOVE sum UP
+        MOVE factor UP
+        MOVE iter RIGHT
+        MOVE test DOWN
+        LOOP // runs if sum > N.  Now testing if factor is a factor of n.
+            MOVE factor LEFT
+            MOVE sum DOWN
+            MOVE iter UP
+            EXIT // remove sum and iter
+            MOVE n RIGHT
+            MOVE n DOWN
+            MOVE n DOWN
+            COMPARE ncopy
+            MOVE factor RIGHT
+            MOVE factor UP
+            MOVE test UP
+            MOVE test RIGHT
+            MOVE ncopy DOWN
+            MOVE ncopy DOWN
+            LOOP // decrement ncopy by 1
+                MOVE ncopy UP
+            ENDLOOP
+            MOVE ncopy UP
+            MOVE test LEFT
+            MOVE factor DOWN
+            MOVE ncopy RIGHT
+            MOVE test UP
+            COMPARE addone // adds one to test
+            COMPARE addone // adds one to test
+            MOVE factor LEFT
+            MOVE ncopy DOWN
+            EXIT
+            MOVE factor RIGHT
+            MOVE factor UP
+            MOVE n UP
+            MOVE test DOWN
+            MOVE test DOWN
+            MOVE test RIGHT
+            COMPARE test2 // if test2 = 1, "factor" is a factor of N.
+            MOVE test2 DOWN
+            MOVE test2 DOWN
+            LOOP // runs if "factor" is a factor of N
+                MOVE n LEFT
+                MOVE test UP
+                EXIT
+                MOVE test2 RIGHT
+                MOVE test2 UP
+                EXIT
+                MOVE factor DOWN
+                MOVE factor DOWN
+                COMPARE fcopy
+                MOVE fcopy RIGHT
+                MOVE factor LEFT
+                LOOP
+                    MOVE factor RIGHT
+                ENDLOOP
+                MOVE factor LEFT
+                MOVE fcopy DOWN
+                MOVE fcopy DOWN
+                MOVE n RIGHT
+                MOVE factor UP
+                MOVE factor UP
+                MOVE factor RIGHT
+                COMPARE one
+                MOVE n LEFT
+                MOVE factor DOWN
+                MOVE one RIGHT
+                MOVE n UP
+                MOVE factor LEFT
+                MOVE factor DOWN
+                LOOP // decrements 1 if factor > 0; factors, so make output 0.
+                    MOVE factor UP
+                    MOVE factor RIGHT
+                    EXIT
+                    MOVE fcopy UP
+                    MOVE n DOWN
+                    COMPARE factor // = -1
+                    MOVE fcopy DOWN
+                    MOVE n RIGHT
+                    MOVE factor DOWN
+                    MOVE factor DOWN
+                    MOVE n LEFT
+                    MOVE fcopy UP
+                    COMPARE negone
+                    MOVE negone RIGHT
+                    MOVE fcopy DOWN
+                    MOVE n UP
+                ENDLOOP
+                MOVE one DOWN
+                MOVE one LEFT
+                PRINT
+                MOVE fcopy UP
+                EXIT
+                MOVE one RIGHT
+                EXIT
+                MOVE factor RIGHT
+                MOVE n DOWN
+                MOVE n RIGHT
+                COMPARE test2
+                MOVE test2 DOWN
+                MOVE test2 DOWN
+                COMPARE test
+                MOVE test DOWN
+                MOVE n UP
+                MOVE n LEFT
+                MOVE factor UP
+                MOVE factor UP
+                MOVE test RIGHT
+                MOVE test DOWN
+                MOVE n DOWN
+                MOVE n RIGHT
+            ENDLOOP
+            MOVE n LEFT
+            MOVE n UP
+            MOVE test2 UP
+            MOVE test2 RIGHT
+            MOVE test UP
+            EXIT // remove test and test2
+            MOVE factor DOWN
+            MOVE factor DOWN
+            MOVE n RIGHT
+            COMPARE sum
+            MOVE sum DOWN
+            MOVE sum RIGHT
+            COMPARE iter
+            MOVE iter DOWN
+            MOVE iter DOWN
+            COMPARE test
+            MOVE test DOWN
+            MOVE n LEFT
+            MOVE sum UP
+            MOVE factor UP
+            MOVE iter RIGHT
+            MOVE test DOWN
+        ENDLOOP
+        MOVE test UP
+        MOVE iter LEFT
+        MOVE factor DOWN
+        MOVE test RIGHT
+        EXIT
+        MOVE n DOWN
+        MOVE n RIGHT
+        MOVE sum LEFT
+    ENDLOOP
+    MOVE sum DOWN
+    MOVE iter UP
+    MOVE factor LEFT
+    MOVE n DOWN
+    MOVE sum RIGHT
+    EXIT
+ENDLOOP

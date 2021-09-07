@@ -1,0 +1,52 @@
+PUT i
+MOVE i DOWN
+MOVE i DOWN
+MOVE i RIGHT
+COMPARE i2
+MOVE i2 RIGHT
+MOVE i LEFT
+LOOP
+    MOVE i RIGHT
+ENDLOOP
+COMPARE negone
+MOVE i UP
+MOVE i2 DOWN
+EXIT
+MOVE negone RIGHT
+COMPARE one
+MOVE negone DOWN
+EXIT
+// now we have 1 stored at (0, 0).
+MOVE one RIGHT
+MOVE one DOWN
+MOVE one DOWN
+COMPARE sixteen
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+MOVE one UP
+MOVE sixteen DOWN
+MOVE sixteen DOWN
+MOVE sixteen RIGHT
+COMPARE out
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+COMPARE unused
+MOVE out DOWN
+MOVE one LEFT
+PRINT
